@@ -5,6 +5,7 @@ namespace TelegramNotifications;
 use GuzzleHttp\Client;
 use Illuminate\Notifications\Notification;
 use Config;
+use TelegramNotifications\Messages\TelegramChain;
 use TelegramNotifications\Messages\TelegramEntity;
 
 class TelegramChannel
@@ -35,17 +36,22 @@ class TelegramChannel
 
     public function send($notifiable, Notification $notification)
     {
-        $chatId = $notifiable->routeNotificationFor('telegram');
-
-        $message = $notification->toTelegram($notifiable);
-
-        if (!$chatId || $message->validate()->fails()) {
+        if (!$chatId = $notifiable->routeNotificationFor('telegram')) {
             return;
         }
 
-        $this->http->post(
-            $this->makeUri($message),
-            $this->buildPayload($chatId, $message)
-        );
+        $entity = $notification->toTelegram($notifiable);
+        $messages = $entity instanceof TelegramChain ? $entity->messages() : [$entity];
+
+        foreach ($messages as $message) {
+            if ($message->validate()->fails()) {
+                break;
+            }
+
+            $this->http->post(
+                $this->makeUri($message),
+                $this->buildPayload($chatId, $message)
+            );
+        }
     }
 }
