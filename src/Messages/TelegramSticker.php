@@ -9,6 +9,6 @@ class TelegramSticker extends TelegramEntity
     ];
 
     protected $optional = [
-        'disable_notification',
+        'disable_notification'
     ];
 }

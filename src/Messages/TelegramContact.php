@@ -2,14 +2,15 @@
 
 namespace TelegramNotifications\Messages;
 
-class TelegramLocation extends TelegramEntity
+class TelegramContact extends TelegramEntity
 {
     protected $required = [
-        'latitude',
-        'longitude'
+        'phone_number',
+        'first_name',
     ];
 
     protected $optional = [
+        'last_name',
         'disable_notification'
     ];
 }
