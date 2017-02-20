@@ -31,13 +31,15 @@ abstract class TelegramEntity
 
     public function validate()
     {
-        return Validator::make(
-            $this->parameters,
-            array_combine(
-                $this->required,
-                array_pad([], count($this->required), 'required')
+        Validator
+            ::make(
+                $this->parameters,
+                array_combine(
+                    $this->required,
+                    array_pad([], count($this->required), 'required')
+                )
             )
-        );
+            ->validate();
     }
 
     public function toArray()
