@@ -38,12 +38,6 @@ class TelegramCollection
         return $this;
     }
 
-    public static function __callStatic($method, $args)
-    {
-        return (new static())
-            ->{$method}(...$args);
-    }
-
     public function __call($method, $args)
     {
         $messageClass = __NAMESPACE__.'\Telegram'.Str::studly($method);
