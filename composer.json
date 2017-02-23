@@ -1,5 +1,27 @@
 {
-    "require": {
-        "guzzlehttp/guzzle": "~6.0"
+  "name": "babenkoivan/telegram-notifications",
+  "type": "library",
+  "description": "Telegram notifications for Laravel",
+  "keywords": [
+    "telegram",
+    "laravel",
+    "notification"
+  ],
+  "homepage": "https://github.com/babenkoivan/telegram-notifications",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Babenko Ivan",
+      "email": "babenko.i.a@gmail.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "TelegramNotifications\\": "src/"
+    }
+  }
 }

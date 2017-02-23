@@ -1,5 +1,8 @@
 # Telegram Notifications For Laravel
 
+[![Packagist](https://img.shields.io/packagist/v/babenkoivan/telegram-notifications.svg)](https://packagist.org/packages/babenkoivan/telegram-notifications)
+[![Packagist](https://img.shields.io/packagist/dt/babenkoivan/telegram-notifications.svg)](https://packagist.org/packages/babenkoivan/telegram-notifications)
+
 The package provides easy way to send [Telegram](https://telegram.org/) notifications to any [notifiable entity](https://laravel.com/docs/5.3/notifications#sending-notifications) in your project.
 It uses official [Telegram Bot API](https://core.telegram.org/bots/api) to deliver your message directly to a user.
 You can send any information you want: text, media, location or contact. 
