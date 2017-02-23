@@ -33,7 +33,7 @@ The package has been tested on following configuration:
 
 ## Installation
 
-To install package you can use composer:
+To install the package you can use composer:
 
 ```
 composer require babenkoivan/telegram-notifications
@@ -47,7 +47,7 @@ Once you've installed package, you need to register service provider in `config/
 ]
 ``` 
 
-To copy package settings to `config` directory run:
+To copy the package settings to `config` directory run:
 
 ```
 php artisan vendor:publish --provider='TelegramNotifications\TelegramServiceProvider'
@@ -78,7 +78,7 @@ Of course, the token above is just an example, you have to specify your own toke
 
 ## Set up your model
 
-To notify user or any other notifiable entity you need to use `Notifiable` trait with your model and define `routeNotificationForTelegram`, which will return `chat_id`:
+To notify user or any other notifiable entity you need to use `Notifiable` trait with your model and define `routeNotificationForTelegram` method, which will return a `chat_id`:
 
 ```php
 <?php
@@ -101,7 +101,7 @@ class User extends Authenticatable
 }
 ```
 
-At this point, you may wonder where to get `chat_id`.
+At this point, you may wonder where to get a `chat_id`.
 The answer is it's up to you! 
 You can create a [webhook](https://core.telegram.org/bots/api#setwebhook) to receive updates from your bot and collect users' ids or you can specify ids manually for certain users.
 
@@ -111,7 +111,7 @@ To get started, you can send `Hello!` message to your bot and then get message d
 curl https://api.telegram.org/bot<your_token_here>/getUpdates
 ```
 
-You will receive json in return:
+You will receive a JSON in return:
 
 ```
 {
@@ -132,7 +132,7 @@ You will receive json in return:
 ## Usage example
 
 if you [installed the package](#installation) and [configured a model](#set-up-your-model) you're ready to make your first Telegram notification.
-You can create new notification using `artisan` command:
+You can create a new notification using `artisan` command:
 
 ```
 php artisan make:notification TelegramNotification
@@ -141,7 +141,7 @@ php artisan make:notification TelegramNotification
 And again, `TelegramNotification` here is just an example, you can specify any name you want.
 
 Now, you can go to `app/Notifications` folder and you'll see `TelegramNotification.php` file. 
-In `via` method specify `TelegramChannel::class` and initialize new `TelegramMessage` instance in `toTelegram` method:
+In `via` method specify `TelegramChannel::class` and initialize a new `TelegramMessage` instance in `toTelegram` method:
 
 ```php
 <?php
@@ -171,7 +171,7 @@ class TelegramNotification extends Notification
 }
 ```
 
-To send notification use `notify` method with notifiable entity. 
+To send the notification use `notify` method with notifiable entity. 
 
 Let's say we have an authenticated user and we want to send some message right from a route callback.
 We'll do it like this:
@@ -188,7 +188,7 @@ Route::post('/', function () {
 
 ## Advanced Usage
 
-You can send either single message or message collection at once.
+You can send either a single message or a message collection at once.
  
 ### Single Message
 
