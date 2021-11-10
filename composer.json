@@ -17,11 +17,19 @@
     }
   ],
   "require": {
-    "guzzlehttp/guzzle": "~6.0"
+    "php": "^7.3",
+    "guzzlehttp/guzzle": "^7.0"
   },
   "autoload": {
     "psr-4": {
       "TelegramNotifications\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "TelegramNotifications\\TelegramServiceProvider"
+      ]
     }
   }
 }

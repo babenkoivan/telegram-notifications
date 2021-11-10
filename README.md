@@ -33,8 +33,8 @@ You can send any information you want: text, media, location or contact.
 
 The package has been tested on following configuration: 
 
-* PHP version &gt;= 7.0
-* Laravel Framework version &gt;= 5.4
+* PHP version &gt;= 7.3
+* Laravel Framework version &gt;= 5.5
 
 ## Installation
 
@@ -44,7 +44,7 @@ To install the package you can use composer:
 composer require babenkoivan/telegram-notifications
 ```
 
-Once you've installed package, you need to register service provider in `config/app.php` file:
+If the package discovery is disabled, you need to register the service provider in `config/app.php` file:
 
 ```php
 'providers' => [
