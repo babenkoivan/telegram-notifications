@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 abstract class TelegramEntity
 {
     protected $required = [];
-    
+
     protected $optional = [];
 
     protected $parameters = [];
@@ -31,15 +31,13 @@ abstract class TelegramEntity
 
     public function validate()
     {
-        Validator
-            ::make(
-                $this->parameters,
-                array_combine(
-                    $this->required,
-                    array_pad([], count($this->required), 'required')
-                )
+        Validator::make(
+            $this->parameters,
+            array_combine(
+                $this->required,
+                array_pad([], count($this->required), 'required')
             )
-            ->validate();
+        )->validate();
     }
 
     public function toArray()

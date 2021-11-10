@@ -101,14 +101,13 @@ class User extends Authenticatable
 
     public function routeNotificationForTelegram()
     {
-        return '993344556';
+        return 993344556;
     }
 }
 ```
 
-At this point, you may wonder where to get a `chat_id`.
-The answer is it's up to you! 
-You can create a [webhook](https://core.telegram.org/bots/api#setwebhook) to receive updates from your bot and collect users' ids or you can specify ids manually for certain users.
+At this point, you may wonder where to get a `chat_id`. The answer is it's up to you! 
+You can create a [webhook](https://core.telegram.org/bots/api#setwebhook) to receive updates for your bot and collect chat ids, or you can specify ids manually for certain users.
 
 To get started, you can send `Hello!` message to your bot and then get message details by requesting [API method](https://core.telegram.org/bots/api#getupdates):
 
@@ -170,16 +169,15 @@ class TelegramNotification extends Notification
 
     public function toTelegram()
     {
-        return (new TelegramMessage())
-            ->text('Hello, world!');
+        return (new TelegramMessage())->text('Hello, world!');
     }
 }
 ```
 
 To send the notification use `notify` method with notifiable entity. 
 
-Let's say we have an authenticated user and we want to send some message right from a route callback.
-We'll do it like this:
+Let's say we have an authenticated user and we want to send a message from a route callback.
+We can do it like this:
 
 ```php
 <?php
